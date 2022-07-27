@@ -32,9 +32,14 @@ let map = L.map('mapid', {
 L.control.layers(baseMaps).addTo(map);
 
 // Accessing the Toronto neighborhoods GeoJSON URL.
-let torontoHoods = "https://raw.githubusercontent.com/emilybstevens/Mapping_Earthquakes/main/torontoNeighborhoods.json";
+let torontoHoods = "https://raw.githubusercontent.com/emilybstevens/mapping-earthquakes/main/torontoNeighborhoods.json";
 
-
+// geo json
+d3.json(torontoHoods).then(function(data) {
+  console.log(data);
+  //geo json later w data
+  L.geoJSON(data).addTo(map);
+})
 
 
 
